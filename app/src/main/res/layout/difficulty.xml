@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="영어단어 퀴즈"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+    <Button
+            android:text="Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/button2"
+            android:visibility="invisible"/>
+    <TextView
+            android:text="난이도 선택"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:id="@+id/textView2"/>
+    <Button
+            android:text="EASY"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/class_easy"/>
+    <Button
+            android:text="HARD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/class_hard"/>
+    <Button
+            android:text="IMPASSABLE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/class_impassable"/>
+</LinearLayout>
