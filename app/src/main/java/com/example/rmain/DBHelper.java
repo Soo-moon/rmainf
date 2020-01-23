@@ -1,5 +1,6 @@
 package com.example.rmain;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,13 +12,13 @@ import java.util.Iterator;
 
 class DBHelper extends SQLiteOpenHelper {
 
-    HashSet<Dan> set = new HashSet<Dan>();
-
-
+    HashSet<Dan> set;
+    Context context;
     public DBHelper(Context context, String name,  SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
-
+        this.context = context;
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -32,6 +33,7 @@ class DBHelper extends SQLiteOpenHelper {
 
     public void insert(){
         SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DELETE FROM Myword");
         Iterator<Dan> iterator = set.iterator();
         while (iterator.hasNext()){
             Dan d = iterator.next();
@@ -52,13 +54,14 @@ class DBHelper extends SQLiteOpenHelper {
 
     public void creatset(){
         SQLiteDatabase db = getReadableDatabase();
+        set = new HashSet<Dan>();
         Cursor cursor =db.rawQuery("SELECT * FROM Myword",null);
         while (cursor.moveToNext()){
-            set.add(new Dan(cursor.getString(0),cursor.getString(1)));
+            this.add(cursor.getString(0),cursor.getString(1));
         }
     }
 
     public void add(String mword ,String mmean){
-        set.add(new Dan(mword,mmean));
+        set.add(new Dan(mword,mmean,context));
     }
 }
