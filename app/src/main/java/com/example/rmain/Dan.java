@@ -17,7 +17,7 @@ public class Dan {
     @Override
     public boolean equals(Object a) {
         Dan obj = (Dan) a;
-        if (obj.word == this.word && obj.mean == this.mean) {
+        if (obj.word.equals(this.word) && obj.mean.equals(this.mean)) {
             Toast.makeText(context, "중복된 단어 입니다.", Toast.LENGTH_SHORT).show();
             return true;
         }
@@ -28,4 +28,6 @@ public class Dan {
     public int hashCode() {
         return (word + mean).hashCode();
     }
+
+
 }
